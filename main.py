@@ -4,15 +4,20 @@ import time
 import sys
 
 runGame = True
-
-def run():
-	os.system('clear')
+clear = ''
+if sys.platform == 'linux':
+	clear = 'clear'
+elif sys.platform == 'windows':
+	clear = 'cls'
+	
+def run(clear):
+	os.system(clear)
 	erros = 0
 	sorteado = random.randrange(0, 100)
 	player = int(input('Digite um numero: '))
 	while(sorteado != player):
 		runGame = False
-		os.system('clear')
+		os.system(clear)
 		if sorteado>player:
 			print('Erro, o numero e maior')
 		elif sorteado<player:
@@ -25,9 +30,9 @@ def run():
 	if r == 'S':
 		runGame = True
 	else:
-		os.system('clear')
+		os.system(clear)
 		print('Game Encerrado')
 		sys.exit()
 		
 while(runGame == True):
-	run()	
+	run(clear)	

@@ -31,7 +31,7 @@ def run(clear):
 		runGame = True
 	else:
 		os.system(clear)
-		print('Game Encerrado')
+		print('Jogo Encerrado')
 		sys.exit()
 		
 while(runGame == True):

@@ -4,17 +4,19 @@ import time
 import sys
 
 runGame = True
-clear = ''
-if sys.platform == 'linux':
-	clear = 'clear'
-elif sys.platform == 'windows':
-	clear = 'cls'
-	
+clear = 'cls' if sys.platform=='windows' else 'clear'
+
 def run(clear):
 	os.system(clear)
 	erros = 0
 	sorteado = random.randrange(0, 100)
-	player = int(input('Digite um numero: '))
+	
+	try:
+		player = int(input('Digite um numero: '))
+	except ValueError:
+		print('Nao e um numero')
+		player = int(input('Digite um numero: '))
+		
 	while(sorteado != player):
 		runGame = False
 		os.system(clear)
@@ -23,7 +25,13 @@ def run(clear):
 		elif sorteado<player:
 			print('Erro, numero e menor')
 		erros += 1
-		player=int(input('Digite um numero: '))
+		
+		try:
+			player = int(input('Digite um numero: '))
+		except ValueError:
+			print('Nao e um numero')
+			player = int(input('Digite um numero: '))	
+			
 	print('Voce acertou ' + str(player) + ', em ' + str(erros+1) + ' tentativas')
 	time.sleep(2)
 	r = input('Jogar novamente? S|N: ').strip().upper()

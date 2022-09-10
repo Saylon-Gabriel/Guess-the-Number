@@ -32,7 +32,7 @@ def run(clear):
 			print('Nao e um numero')
 			player = int(input('Digite um numero: '))	
 			
-	print('Voce acertou ' + str(player) + ', em ' + str(erros+1) + ' tentativas')
+	print(f'Voce acertou {player},em {erros+1} tentativas')
 	time.sleep(2)
 	r = input('Jogar novamente? S|N: ').strip().upper()
 	if r == 'S':
